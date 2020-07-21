@@ -1,22 +1,17 @@
 #!/usr/bin/env python
-echo
-"# kali-linux-python-code" >> README.md
-git init
-git add README.md
-git commit - m "first commit"
-git remote add origin https: // github.com / joelprince2601 / kali - linux - python - code.git
-git push - u origin master
 
 import scapy.all as scapy
 
 def scan(ip):
         arp_request = scapy.ARP(pdst=ip)
-        arp_request.show()
         broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
-        broadcast.show()
-        print(broadcast.summary())
         arp_request_broadcast = broadcast/arp_request
-        print(arp_request_broadcast.summary())
-        arp_request_broadcast.show()
+        answered_list = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0]
+
+        print("IP\t\t\tMAC ADDRESS\n------------------------------------------------")
+
+        for element in answered_list:
+            print(element[1].psrc + "\t\t" + element[1].hwsrc)
+
 
 scan("10.0.2.1/24")

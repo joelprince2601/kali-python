@@ -10,7 +10,7 @@ This repository contains Python scripts and examples for penetration testing and
 - **Educational Purposes**: Suitable for learning and practicing security testing techniques with Python on a penetration testing platform.
 
 ## Requirements
-
+k
 - Kali Linux (or a similar penetration testing distribution)
 - Python interpreter (typically pre-installed in Kali Linux)
 - Additional Python libraries and tools as specified in the scripts or examples
